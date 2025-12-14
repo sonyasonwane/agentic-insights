@@ -1,5 +1,5 @@
 import { SynthesisResult as SynthesisResultType } from '@/types/agent';
-import { Star, TrendingUp, AlertTriangle, ArrowRight } from 'lucide-react';
+import { Star, TrendingUp, AlertTriangle, ArrowRight, ShieldAlert, Info } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface SynthesisResultProps {
@@ -13,7 +13,15 @@ export function SynthesisResult({ data }: SynthesisResultProps) {
 
   return (
     <div className="space-y-6">
-      {/* Confidence Score */}
+      {/* Disclaimer Banner */}
+      <div className="flex items-start gap-3 p-3 rounded-lg bg-amber-500/10 border border-amber-500/20">
+        <Info className="h-4 w-4 text-amber-600 mt-0.5 flex-shrink-0" />
+        <p className="text-xs text-amber-700 dark:text-amber-400">
+          <strong>For decision-support only.</strong> AI-generated insights require expert validation before any clinical or business decisions.
+        </p>
+      </div>
+
+      {/* Confidence Level (Indicative) */}
       <div className="flex items-center justify-center gap-6 p-4 rounded-xl bg-gradient-to-r from-primary/5 via-agent-clinical/5 to-agent-patent/5">
         <div className="relative">
           <svg className="w-24 h-24 transform -rotate-90">
@@ -46,10 +54,16 @@ export function SynthesisResult({ data }: SynthesisResultProps) {
           </div>
         </div>
         <div>
-          <p className="text-sm text-muted-foreground">Confidence Score</p>
+          <div className="flex items-center gap-2">
+            <p className="text-sm text-muted-foreground">Confidence Level</p>
+            <span className="text-[10px] px-1.5 py-0.5 rounded bg-muted text-muted-foreground">
+              Indicative
+            </span>
+          </div>
           <p className={cn('font-display text-xl font-bold', confidenceColor)}>
             {confidenceLevel} Potential
           </p>
+          <p className="text-xs text-muted-foreground mt-1">AI-estimated range</p>
         </div>
       </div>
 
@@ -78,20 +92,26 @@ export function SynthesisResult({ data }: SynthesisResultProps) {
         </ul>
       </div>
 
-      {/* Risks */}
-      <div>
+      {/* Risk Considerations */}
+      <div className="p-4 rounded-xl bg-destructive/5 border border-destructive/20">
         <div className="flex items-center gap-2 text-sm font-medium mb-3">
-          <AlertTriangle className="h-4 w-4 text-agent-research" />
-          Risk Factors
+          <ShieldAlert className="h-4 w-4 text-destructive" />
+          Risk Considerations
+          <span className="text-[10px] px-1.5 py-0.5 rounded bg-destructive/10 text-destructive">
+            Requires Review
+          </span>
         </div>
         <ul className="space-y-2">
           {data.risks.map((risk, i) => (
             <li key={i} className="flex items-start gap-2 text-sm">
-              <span className="text-agent-research mt-1">!</span>
+              <span className="text-destructive mt-1">⚠</span>
               <span className="text-muted-foreground">{risk}</span>
             </li>
           ))}
         </ul>
+        <p className="text-xs text-muted-foreground mt-3 pt-3 border-t border-destructive/20">
+          These risk factors are AI-identified and should be validated by domain experts before proceeding.
+        </p>
       </div>
 
       {/* Next Steps */}

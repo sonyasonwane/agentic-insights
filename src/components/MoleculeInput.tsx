@@ -26,10 +26,13 @@ export function MoleculeInput({ onAnalyze, isLoading }: MoleculeInputProps) {
       <div className="relative glass-card rounded-2xl p-8">
         <div className="text-center mb-6">
           <h2 className="font-display text-2xl font-bold mb-2">
-            Discover Repurposing Opportunities
+            AI-Assisted Drug Repurposing Analysis
           </h2>
           <p className="text-muted-foreground">
-            Enter a molecule name to analyze market, clinical, patent, and research data
+            Enter a molecule name for AI-estimated insights across market, clinical, patent, and research domains
+          </p>
+          <p className="text-xs text-muted-foreground/70 mt-2">
+            Results are indicative and require expert validation
           </p>
         </div>
 

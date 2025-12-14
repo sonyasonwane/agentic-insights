@@ -88,7 +88,7 @@ export default function Index() {
 
       toast({
         title: 'Analysis Complete',
-        description: `Successfully analyzed ${molecule} with ${Math.round(synthesis.confidenceScore * 100)}% confidence score.`,
+        description: `AI-simulated insights generated for ${molecule}. Confidence level: ~${Math.round(synthesis.confidenceScore * 100)}% (indicative).`,
       });
     } catch (error) {
       toast({
@@ -202,7 +202,7 @@ export default function Index() {
                       )}
                     </h2>
                     <p className="text-sm text-muted-foreground">
-                      Multi-agent intelligence synthesis
+                      AI-simulated insights • For decision-support only
                     </p>
                   </div>
                   {currentResult && (
@@ -288,6 +288,17 @@ export default function Index() {
           </div>
         </main>
       </div>
+
+      {/* Footer Disclaimer */}
+      <footer className="border-t border-border/50 bg-muted/30 py-3">
+        <div className="container flex items-center justify-center gap-4 text-xs text-muted-foreground">
+          <span>For decision-support only. Requires expert validation.</span>
+          <span className="text-border">|</span>
+          <span>Human-in-the-loop: Final decisions remain with R&D experts.</span>
+          <span className="text-border">|</span>
+          <span className="font-medium">Hackathon Prototype</span>
+        </div>
+      </footer>
     </div>
   );
 }
