@@ -20,14 +20,14 @@ const journals = [
 export async function simulateMarketAgent(molecule: string): Promise<MarketData> {
   await delay(1500 + Math.random() * 1000);
   
-  const cagr = (5 + Math.random() * 10).toFixed(1);
-  const marketSize = (Math.random() * 50 + 10).toFixed(1);
+  const growthTrends = ['Moderate', 'Moderate–High', 'Stable–Moderate'];
+  const marketScopes = ['Broader therapeutic segment', 'Adjacent indication areas', 'Related disease categories'];
   const numCompetitors = Math.floor(Math.random() * 4) + 2;
   const shuffledCompanies = [...companies].sort(() => Math.random() - 0.5);
   
   return {
-    cagr: `${cagr}%`,
-    marketSize: `$${marketSize}B`,
+    cagr: growthTrends[Math.floor(Math.random() * growthTrends.length)],
+    marketSize: marketScopes[Math.floor(Math.random() * marketScopes.length)],
     leadingCompetitors: shuffledCompanies.slice(0, numCompetitors),
     summary: `${molecule} shows strong market potential in the ${therapeuticAreas[Math.floor(Math.random() * therapeuticAreas.length)]} segment with sustained demand growth projected through 2030.`,
     growthDrivers: [
@@ -55,7 +55,7 @@ export async function simulateClinicalAgent(molecule: string): Promise<ClinicalD
       { phase: 'Phase IV', count: Math.floor(Math.random() * 3) }
     ],
     sponsors: shuffledCompanies.slice(0, 3),
-    insights: `Active clinical development with ${totalTrials} trials investigating ${molecule} for novel ${area.toLowerCase()} applications. Strong Phase II pipeline suggests high commercial interest.`,
+    insights: `Trials exploring anti-inflammatory and supportive roles across therapeutic areas. Includes exploratory and repurposing-oriented studies for ${molecule} in ${area.toLowerCase()} applications.`,
     indications: [
       `${area} - Primary indication`,
       `${therapeuticAreas[Math.floor(Math.random() * therapeuticAreas.length)]} - Secondary`,
@@ -80,7 +80,7 @@ export async function simulatePatentAgent(molecule: string): Promise<PatentData>
     ],
     holders: shuffledCompanies.slice(0, 4),
     notes: `Upcoming patent cliff in ${currentYear + 2}-${currentYear + 4} creates significant repurposing opportunity. Multiple formulation patents expiring, enabling generic competition and new indication development.`,
-    ftoStatus: Math.random() > 0.3 ? 'Favorable - Clear path for new indications' : 'Requires licensing - Core composition patents active'
+    ftoStatus: Math.random() > 0.3 ? 'Potentially Favorable – Initial signals suggest development pathway' : 'Complex – May require licensing discussions'
   };
 }
 
