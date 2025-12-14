@@ -47,10 +47,10 @@ export function PatentLandscape({ data }: PatentLandscapeProps) {
       <div className="rounded-lg bg-agent-patent/5 border border-agent-patent/20 p-3">
         <div className="flex items-center gap-2 text-xs font-medium text-agent-patent mb-1">
           <Shield className="h-3 w-3" />
-          Preliminary FTO Assessment
+          Preliminary FTO Signal
         </div>
         <p className="text-sm">{data.ftoStatus}</p>
-        <p className="text-[10px] text-muted-foreground mt-1">Requires formal legal review</p>
+        <p className="text-[10px] text-muted-foreground mt-1">Requires detailed legal validation</p>
       </div>
 
       <div className="pt-3 border-t border-border/50">

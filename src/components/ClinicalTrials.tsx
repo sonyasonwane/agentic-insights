@@ -12,9 +12,10 @@ export function ClinicalTrials({ data }: ClinicalTrialsProps) {
         <div className="flex-1 rounded-lg bg-secondary/50 p-3">
           <div className="flex items-center gap-2 text-xs text-muted-foreground mb-1">
             <FlaskConical className="h-3 w-3" />
-            Total Trials
+            Est. Related Trials
           </div>
-          <p className="font-display text-2xl font-bold text-agent-clinical">{data.totalTrials}</p>
+          <p className="font-display text-2xl font-bold text-agent-clinical">~{data.totalTrials}</p>
+          <p className="text-[10px] text-muted-foreground">Includes exploratory & repurposing-oriented studies</p>
         </div>
       </div>
 

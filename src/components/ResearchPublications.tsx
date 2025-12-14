@@ -30,7 +30,8 @@ export function ResearchPublications({ data }: ResearchPublicationsProps) {
       </div>
 
       <div>
-        <p className="text-xs font-medium mb-2">Recent Key Publications:</p>
+        <p className="text-xs font-medium mb-1">Recent Key Publications:</p>
+        <p className="text-[10px] text-muted-foreground mb-2 italic">Illustrative examples based on thematic literature patterns</p>
         <div className="space-y-2">
           {data.publications.map((pub, i) => (
             <div key={i} className="p-2 rounded-lg bg-agent-research/5 border border-agent-research/20">
