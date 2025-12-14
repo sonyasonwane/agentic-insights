@@ -54,9 +54,16 @@ export function AgentCard({ icon, title, status, variant, children, defaultOpen 
             </div>
             <div className="text-left">
               <h3 className="font-display font-semibold">{title}</h3>
-              <p className="text-xs text-muted-foreground">
-                {isRunning ? 'Analyzing...' : isComplete ? 'Analysis complete' : isError ? 'Analysis failed' : 'Waiting...'}
-              </p>
+              <div className="flex items-center gap-2">
+                <p className="text-xs text-muted-foreground">
+                  {isRunning ? 'Analyzing...' : isComplete ? 'AI-Simulated Insights' : isError ? 'Analysis failed' : 'Waiting...'}
+                </p>
+                {isComplete && (
+                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-muted text-muted-foreground">
+                    Indicative
+                  </span>
+                )}
+              </div>
             </div>
           </div>
           

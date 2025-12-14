@@ -1,4 +1,4 @@
-import { Atom, Sparkles } from 'lucide-react';
+import { Atom, Sparkles, Users, Zap } from 'lucide-react';
 
 export function Header() {
   return (
@@ -16,16 +16,32 @@ export function Header() {
               Agentic AI
             </h1>
             <p className="text-xs text-muted-foreground">
-              Drug Repurposing Assistant
+              Decision-Support Platform
             </p>
           </div>
         </div>
         
-        <div className="flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1.5">
-          <Sparkles className="h-4 w-4 text-primary animate-pulse" />
-          <span className="text-xs font-medium text-primary">
-            Agent Parallel Mode
-          </span>
+        <div className="flex items-center gap-3">
+          {/* Parallel Execution Badge */}
+          <div className="flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1.5 border border-primary/20">
+            <Zap className="h-4 w-4 text-primary" />
+            <span className="text-xs font-medium text-primary">
+              4 Agents Running in Parallel
+            </span>
+            <div className="flex -space-x-1">
+              {[...Array(4)].map((_, i) => (
+                <div key={i} className="w-2 h-2 rounded-full bg-primary animate-pulse" style={{ animationDelay: `${i * 150}ms` }} />
+              ))}
+            </div>
+          </div>
+          
+          {/* Human-in-the-loop Badge */}
+          <div className="flex items-center gap-2 rounded-full bg-agent-clinical/10 px-3 py-1.5 border border-agent-clinical/20">
+            <Users className="h-4 w-4 text-agent-clinical" />
+            <span className="text-xs font-medium text-agent-clinical">
+              Human-in-the-Loop
+            </span>
+          </div>
         </div>
       </div>
     </header>

@@ -4,7 +4,18 @@ export function generatePDFReport(result: AnalysisResult): void {
   const content = `
 ================================================================================
                     AGENTIC AI DRUG REPURPOSING REPORT
+                      AI-Assisted Decision Support Platform
 ================================================================================
+
+⚠️  IMPORTANT DISCLAIMER
+--------------------------------------------------------------------------------
+This report contains AI-generated indicative insights for early-stage drug 
+repurposing analysis. All data, estimates, and recommendations are simulated
+and require validation by qualified experts before any clinical, business, 
+or regulatory decisions.
+
+For decision-support only. Human-in-the-loop validation required.
+--------------------------------------------------------------------------------
 
 Molecule: ${result.moleculeName.toUpperCase()}
 Generated: ${new Date(result.timestamp).toLocaleString()}
@@ -16,16 +27,17 @@ Report ID: ${result.id}
 
 ${result.synthesis.recommendation}
 
-Confidence Score: ${(result.synthesis.confidenceScore * 100).toFixed(0)}%
+Confidence Level (Indicative): ~${(result.synthesis.confidenceScore * 100).toFixed(0)}%
+Note: This is an AI-estimated confidence range, not a validated metric.
 
 --------------------------------------------------------------------------------
-                              MARKET INSIGHTS
+                         MARKET INSIGHTS (Indicative)
 --------------------------------------------------------------------------------
 
-Market Size: ${result.market.marketSize}
-CAGR: ${result.market.cagr}
+Est. Market Size: ~${result.market.marketSize} (AI-estimated range)
+Est. CAGR: ~${result.market.cagr} (Approximate)
 
-Leading Competitors:
+Key Market Players (Illustrative):
 ${result.market.leadingCompetitors.map(c => `  • ${c}`).join('\n')}
 
 Summary: ${result.market.summary}
@@ -34,10 +46,10 @@ Growth Drivers:
 ${result.market.growthDrivers.map(d => `  • ${d}`).join('\n')}
 
 --------------------------------------------------------------------------------
-                            CLINICAL TRIALS
+                       CLINICAL TRIALS (Indicative)
 --------------------------------------------------------------------------------
 
-Total Active Trials: ${result.clinical.totalTrials}
+Est. Active Trials: ~${result.clinical.totalTrials} (Approximate)
 
 Trial Distribution by Phase:
 ${result.clinical.phases.map(p => `  • ${p.phase}: ${p.count} trials`).join('\n')}
@@ -51,25 +63,26 @@ Target Indications:
 ${result.clinical.indications.map(i => `  • ${i}`).join('\n')}
 
 --------------------------------------------------------------------------------
-                           PATENT LANDSCAPE
+                      PATENT LANDSCAPE (Indicative)
 --------------------------------------------------------------------------------
 
-Total Patents: ${result.patent.totalPatents}
-Key Expiry Years: ${result.patent.expiryYears.join(', ')}
+Est. Related Patents: ~${result.patent.totalPatents} (Approximate count)
+Potential Expiry Window: ${result.patent.expiryYears.join(', ')} (Subject to verification)
 
-Patent Holders:
+Potential Patent Holders (Illustrative):
 ${result.patent.holders.map(h => `  • ${h}`).join('\n')}
 
-FTO Status: ${result.patent.ftoStatus}
+Preliminary FTO Assessment: ${result.patent.ftoStatus}
+Note: Requires formal legal review for actual FTO determination.
 
 Notes: ${result.patent.notes}
 
 --------------------------------------------------------------------------------
-                        RESEARCH & PUBLICATIONS
+                   RESEARCH & PUBLICATIONS (Indicative)
 --------------------------------------------------------------------------------
 
-Total Publications: ${result.research.publicationsCount}
-Overall Sentiment: ${result.research.sentiment}
+Est. Publications: ~${result.research.publicationsCount}+ (Approximate)
+Literature Sentiment: ${result.research.sentiment} (AI-assessed)
 
 Recent Key Publications:
 ${result.research.publications.map(p => `  • "${p.title}" (${p.year}) - ${p.journal}`).join('\n')}
@@ -84,10 +97,13 @@ ${result.research.keyFindings.map(f => `  • ${f}`).join('\n')}
 ${result.synthesis.keyOpportunities.map((o, i) => `${i + 1}. ${o}`).join('\n')}
 
 --------------------------------------------------------------------------------
-                              RISK FACTORS
+                    RISK CONSIDERATIONS (Requires Review)
 --------------------------------------------------------------------------------
 
 ${result.synthesis.risks.map((r, i) => `${i + 1}. ${r}`).join('\n')}
+
+Note: These risk factors are AI-identified and should be validated by 
+domain experts before proceeding with any decisions.
 
 --------------------------------------------------------------------------------
                          RECOMMENDED NEXT STEPS
@@ -96,12 +112,28 @@ ${result.synthesis.risks.map((r, i) => `${i + 1}. ${r}`).join('\n')}
 ${result.synthesis.nextSteps.map((s, i) => `${i + 1}. ${s}`).join('\n')}
 
 ================================================================================
+                              DISCLAIMER
+================================================================================
 
-                      Generated by Agentic AI Assistant
-                    Drug Repurposing Intelligence Platform
-                    
-           This report is for informational purposes only and should
-           not be considered as medical or investment advice.
+This report is generated by an AI-assisted decision-support platform for 
+early-stage drug repurposing analysis. The insights, estimates, and 
+recommendations contained herein are:
+
+• AI-simulated and indicative in nature
+• Not validated clinical or regulatory data
+• Subject to significant uncertainty and require expert verification
+• Not intended as medical, legal, or investment advice
+
+Human-in-the-loop: Final decisions remain with R&D experts and qualified 
+professionals. All data should be independently verified before use in 
+clinical, business, or regulatory contexts.
+
+================================================================================
+
+            Generated by Agentic AI – Hackathon Prototype
+            AI-Assisted Drug Repurposing Decision-Support Platform
+            
+            For demonstration purposes only.
 
 ================================================================================
   `.trim();

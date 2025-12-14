@@ -12,23 +12,25 @@ export function MarketInsights({ data }: MarketInsightsProps) {
         <div className="rounded-lg bg-secondary/50 p-3">
           <div className="flex items-center gap-2 text-xs text-muted-foreground mb-1">
             <TrendingUp className="h-3 w-3" />
-            CAGR
+            Est. CAGR Range
           </div>
-          <p className="font-display text-xl font-bold text-agent-market">{data.cagr}</p>
+          <p className="font-display text-xl font-bold text-agent-market">~{data.cagr}</p>
+          <p className="text-[10px] text-muted-foreground">AI-estimated</p>
         </div>
         <div className="rounded-lg bg-secondary/50 p-3">
           <div className="flex items-center gap-2 text-xs text-muted-foreground mb-1">
             <BarChart3 className="h-3 w-3" />
-            Market Size
+            Est. Market Size
           </div>
-          <p className="font-display text-xl font-bold">{data.marketSize}</p>
+          <p className="font-display text-xl font-bold">~{data.marketSize}</p>
+          <p className="text-[10px] text-muted-foreground">Indicative range</p>
         </div>
       </div>
 
       <div>
         <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
           <Building2 className="h-3 w-3" />
-          Leading Competitors
+          Key Market Players (Illustrative)
         </div>
         <div className="flex flex-wrap gap-2">
           {data.leadingCompetitors.map((company) => (

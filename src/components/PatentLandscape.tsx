@@ -12,23 +12,25 @@ export function PatentLandscape({ data }: PatentLandscapeProps) {
         <div className="rounded-lg bg-secondary/50 p-3">
           <div className="flex items-center gap-2 text-xs text-muted-foreground mb-1">
             <FileText className="h-3 w-3" />
-            Total Patents
+            Est. Related Patents
           </div>
-          <p className="font-display text-xl font-bold text-agent-patent">{data.totalPatents}</p>
+          <p className="font-display text-xl font-bold text-agent-patent">~{data.totalPatents}</p>
+          <p className="text-[10px] text-muted-foreground">Approximate count</p>
         </div>
         <div className="rounded-lg bg-secondary/50 p-3">
           <div className="flex items-center gap-2 text-xs text-muted-foreground mb-1">
             <Calendar className="h-3 w-3" />
-            Key Expiry Years
+            Potential Expiry Window
           </div>
           <p className="font-display text-lg font-bold">{data.expiryYears.join(', ')}</p>
+          <p className="text-[10px] text-muted-foreground">Subject to verification</p>
         </div>
       </div>
 
       <div>
         <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
           <Building className="h-3 w-3" />
-          Patent Holders
+          Potential Patent Holders (Illustrative)
         </div>
         <div className="flex flex-wrap gap-2">
           {data.holders.map((holder) => (
@@ -45,9 +47,10 @@ export function PatentLandscape({ data }: PatentLandscapeProps) {
       <div className="rounded-lg bg-agent-patent/5 border border-agent-patent/20 p-3">
         <div className="flex items-center gap-2 text-xs font-medium text-agent-patent mb-1">
           <Shield className="h-3 w-3" />
-          FTO Status
+          Preliminary FTO Assessment
         </div>
         <p className="text-sm">{data.ftoStatus}</p>
+        <p className="text-[10px] text-muted-foreground mt-1">Requires formal legal review</p>
       </div>
 
       <div className="pt-3 border-t border-border/50">

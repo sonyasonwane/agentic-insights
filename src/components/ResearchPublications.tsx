@@ -12,18 +12,20 @@ export function ResearchPublications({ data }: ResearchPublicationsProps) {
         <div className="rounded-lg bg-secondary/50 p-3">
           <div className="flex items-center gap-2 text-xs text-muted-foreground mb-1">
             <BookOpen className="h-3 w-3" />
-            Publications
+            Est. Publications
           </div>
-          <p className="font-display text-xl font-bold text-agent-research">{data.publicationsCount}+</p>
+          <p className="font-display text-xl font-bold text-agent-research">~{data.publicationsCount}+</p>
+          <p className="text-[10px] text-muted-foreground">Approximate</p>
         </div>
         <div className="rounded-lg bg-secondary/50 p-3">
           <div className="flex items-center gap-2 text-xs text-muted-foreground mb-1">
             <ThumbsUp className="h-3 w-3" />
-            Sentiment
+            Literature Sentiment
           </div>
           <p className={`font-display text-lg font-bold ${data.sentiment === 'Positive' ? 'text-agent-clinical' : 'text-agent-research'}`}>
             {data.sentiment}
           </p>
+          <p className="text-[10px] text-muted-foreground">AI-assessed</p>
         </div>
       </div>
 
